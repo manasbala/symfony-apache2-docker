@@ -11,7 +11,7 @@ services:
             MYSQL_PASSWORD: manas
     php:
         build: ./php
-        expose:
+        ports:
             - "80:80"
         volumes:
             - ./symfony-app:/var/www/html
