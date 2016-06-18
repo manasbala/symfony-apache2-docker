@@ -30,7 +30,9 @@ ENV APACHE_SERVERNAME localhost
 ENV APACHE_SERVERALIAS docker.localhost
 ENV APACHE_DOCUMENTROOT /var/www/html
 
-COPY apache2-foreground /usr/local/bin/
+COPY start.sh /start.sh
 
 EXPOSE 80
-CMD ["apache2-foreground"]
+RUN usermod -u 1000 www-data
+
+ENTRYPOINT ["/start.sh"]
