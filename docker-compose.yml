@@ -1,14 +1,16 @@
 version: '2'
 services:
     db:
-        image: mysql
+        build: ./mysql
         ports:
             - "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: canvanizerbeta
+            MYSQL_DATABASE: symfony
             MYSQL_USER: manas
             MYSQL_PASSWORD: manas
+        volumes:
+            - ./data/db:/var/lib/mysql
     php:
         build: ./php
         ports:
